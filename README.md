@@ -40,6 +40,7 @@ beginning hour | weather description - humidity - temperature(°C)
 ```
 example : 
 ```
+$ ./main -city Paris -days 2
 INFO    Weather forecast for Paris (2 day(s))
 2020-04-15 
 15:00:00 | few clouds - h:40% - 20.01°C
