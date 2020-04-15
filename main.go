@@ -45,9 +45,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Initialize pushover, recipient and openweather
-	pushoverApp := pushover.New((*tokens)["pushover"])
-	recipient := pushover.NewRecipient((*tokens)["recipient"])
+	// Initialize openweather
 	openweatherApp, err := openweather.New((*tokens)["openweather"])
 	if err != nil {
 		sugar.Errorf("Error when creating an OpenWeather app : %v\n", err)
@@ -83,6 +81,11 @@ func main() {
 	// Pushover
 	if *sendPushover {
 		sugar.Infof("Sending message to pushover")
+
+		// Initialize pushover and recipient
+		pushoverApp := pushover.New((*tokens)["pushover"])
+		recipient := pushover.NewRecipient((*tokens)["recipient"])
+
 		// Pushover message made of the first forecast entry + title
 		message := pushover.NewMessageWithTitle((*forecastSlice)[0], forecastTitle)
 
@@ -105,7 +108,7 @@ func main() {
 	}
 }
 
-// getCredentials
+// Returns a *map[string]string containing tokens from filename
 func getTokens(filename string) (*map[string]string, error) {
 	//
 	tokensMap := make(map[string]string)
