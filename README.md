@@ -56,3 +56,8 @@ INFO    Weather forecast for Paris (2 day(s))
 18:00:00 | scattered clouds - h:59% - 18.98°C
 21:00:00 | light rain - h:72% - 15.58°C
 ```
+
+## Todo and upgrades
+- Tests :)
+- Forecast format
+
